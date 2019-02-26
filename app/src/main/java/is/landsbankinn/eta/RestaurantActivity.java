@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import is.landsbankinn.eta.utils.Restaurant;
+import is.landsbankinn.eta.models.Restaurant;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
