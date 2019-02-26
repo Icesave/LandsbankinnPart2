@@ -1,5 +1,7 @@
 package is.landsbankinn.eta.utils;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -19,4 +21,14 @@ public interface RequestHandler {
 
     @POST("restaurant/{id}")
     Call<Restaurant> submitReview(@Body Review Review);
+
+    @POST("login")
+    Call<User> getUser(@Body User user);
+
+    @POST("signup")
+    Call<User> insertUser(@Body User user);
+
+    @POST("search")
+    Call<List<Restaurant>> searchForRestaurant(@Body SearchParam searchParam);
+
 }
