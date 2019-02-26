@@ -1,9 +1,20 @@
 <resources>
-    <string name="app_name">eta</string>
+    <string name="app_name">Éta</string>
     <string name="test_button">Skoða veitingastað</string>
     <string name="get_restaurant_error">Gat ekki náð í upplýsingar um veitingastað</string>
     <string name="one">1</string>
     <string name="search_button">Leita að Veitingastað</string>
     <string name="insert_button">Setja inn nýjan veitingastað</string>
     <string name="login_button">Srá inn notanda</string>
+    <string name="insert_title">Skrá veitingastað</string>
+    <string name="insert_name">Nafn á veitingastað</string>
+    <string name="insert_address">Staðsetning</string>
+    <string name="insert_about">Um veitingastaðinn</string>
+    <string name="insert_tag_1">Indverskur</string>
+    <string name="insert_tag_2">Tælenskur</string>
+    <string name="insert_tag_3">Pizza</string>
+    <string name="insert_tag_4">Skyndibiti</string>
+    <string name="insert_price_1">Ódýr</string>
+    <string name="insert_price_2">Meðaldýr</string>
+    <string name="insert_price_3">Dýr</string>
 </resources>

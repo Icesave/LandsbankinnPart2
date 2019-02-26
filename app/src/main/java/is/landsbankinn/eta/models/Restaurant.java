@@ -1,4 +1,4 @@
-package is.landsbankinn.eta.utils;
+package is.landsbankinn.eta.models;
 
 import java.util.ArrayList;
 import java.util.List;

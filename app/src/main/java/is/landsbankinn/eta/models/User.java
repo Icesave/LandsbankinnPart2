@@ -1,4 +1,4 @@
-package is.landsbankinn.eta.utils;
+package is.landsbankinn.eta.models;
 
 public class User {
     private long id;

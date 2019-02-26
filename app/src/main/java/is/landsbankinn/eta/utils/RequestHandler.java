@@ -2,6 +2,10 @@ package is.landsbankinn.eta.utils;
 
 import java.util.List;
 
+import is.landsbankinn.eta.models.Restaurant;
+import is.landsbankinn.eta.models.Review;
+import is.landsbankinn.eta.models.SearchParam;
+import is.landsbankinn.eta.models.User;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
