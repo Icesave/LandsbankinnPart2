@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">eta</string>
+    <string name="app_name">Éta</string>
     <string name="test_button">Skoða veitingastað</string>
     <string name="get_restaurant_error">Gat ekki náð í upplýsingar um veitingastað</string>
     <string name="one">1</string>
