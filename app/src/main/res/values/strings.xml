@@ -3,4 +3,7 @@
     <string name="test_button">Skoða veitingastað</string>
     <string name="get_restaurant_error">Gat ekki náð í upplýsingar um veitingastað</string>
     <string name="one">1</string>
+    <string name="search_button">Leita að Veitingastað</string>
+    <string name="insert_button">Setja inn nýjan veitingastað</string>
+    <string name="login_button">Srá inn notanda</string>
 </resources>
