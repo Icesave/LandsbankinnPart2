@@ -30,7 +30,6 @@ public class RestaurantActivity extends BaseActivity {
 
             @Override
             public void onFailure(Call<Restaurant> call, Throwable t) {
-                System.out.print(t);
                 mRestaurantName.setText(getResources().getString(R.string.get_restaurant_error));
             }
         });

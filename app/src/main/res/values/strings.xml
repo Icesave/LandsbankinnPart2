@@ -17,4 +17,25 @@
     <string name="insert_price_1">Ódýr</string>
     <string name="insert_price_2">Meðaldýr</string>
     <string name="insert_price_3">Dýr</string>
+    <string name="title_activity_authentication">AuthenticationActivity</string>
+    <string name="authentication_title">Innskráning</string>
+    <string name="authentication_username_hint">Notandanafn</string>
+    <string name="authenticatoin_login_button">Skrá inn</string>
+    <string name="authentication_password_input">Lykilorð</string>
+    <string name="authentication_login_success">Innsrkáning tókst</string>
+    <string name="authentication_login_error">Innsrkáning mistókst</string>
+    <string name="register_new_login">Nýskráning</string>
+    <string name="register_manager">Eigandi</string>
+    <string name="register_non_manager">Notandi</string>
+    <string name="register_button_text">Nýskrá</string>
+    <string name="register_email_input_hint">Netfang</string>
+    <string name="n_skr">Nýskrá</string>
+    <string name="register_info_success">Nýskráning tókst</string>
+    <string name="register_info_error">Nýskráning mistókst</string>
+    <string name="already_logged_in_message">Notandi er nú þegar skráður inn</string>
+    <string name="already_logged_in_yes">Okei</string>
+    <string name="already_logged_in_no">Skrá nýjan notanda</string>
+    <string name="user_type_manager">MANAGER</string>
+    <string name="user_type_casual">CASUAL</string>
+
 </resources>

@@ -1,5 +1,7 @@
 package is.landsbankinn.eta;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -24,7 +26,7 @@ public class MainActivity extends BaseActivity {
         mSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast toast = Toast.makeText(MainActivity.this,"SEARCH", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(MainActivity.this, "SEARCH", Toast.LENGTH_LONG);
                 toast.show();
 
                 // TODO start search Activity
@@ -36,7 +38,7 @@ public class MainActivity extends BaseActivity {
         mInsertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast toast = Toast.makeText(MainActivity.this,"INSERT", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(MainActivity.this, "INSERT", Toast.LENGTH_LONG);
                 toast.show();
 
                 // TODO start insert Activity
@@ -47,16 +49,32 @@ public class MainActivity extends BaseActivity {
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast toast = Toast.makeText(MainActivity.this,"LOGIN", Toast.LENGTH_LONG);
-                toast.show();
+                if (preferenceHandler.isUserLoggedIn()) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    builder.setMessage(R.string.already_logged_in_message)
+                            .setPositiveButton(R.string.already_logged_in_yes, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
 
-                // TODO start login Activity
-                //Intent intent = AuthenticationActivity.getIntent(MainActivity.this,8);
-                //startActivity(intent);
+                                }
+                            })
+                            .setNegativeButton(R.string.already_logged_in_no, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    startAuthentication();
+                                }
+                            });
+                    builder.create().show();
+                } else {
+                    startAuthentication();
+                }
             }
         });
     }
+
+    private void startAuthentication() {
+        Intent intent = AuthenticationActivity.getIntent(MainActivity.this);
+        startActivity(intent);
     }
+}
 
 
 

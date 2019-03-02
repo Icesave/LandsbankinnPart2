@@ -3,6 +3,7 @@ package is.landsbankinn.eta;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import is.landsbankinn.eta.utils.PreferenceHandler;
 import is.landsbankinn.eta.utils.RequestHandler;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -12,6 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class BaseActivity extends AppCompatActivity {
 
     public RequestHandler requestHandler;
+    public PreferenceHandler preferenceHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,7 @@ public class BaseActivity extends AppCompatActivity {
                 .build();
 
         requestHandler = retrofit.create(RequestHandler.class);
+        preferenceHandler = new PreferenceHandler(this);
 
     }
 }
