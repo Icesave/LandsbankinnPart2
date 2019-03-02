@@ -21,13 +21,11 @@
         <activity android:name=".BaseActivity" />
         <activity android:name=".RestaurantActivity" />
         <activity android:name=".SearchActivity" />
-        <activity android:name=".InsertActivity" />
+        <activity android:name=".InsertActivity" android:exported="true" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".AuthenticationActicitye" />
         <activity
             android:name=".AuthenticationActivity"
             android:label="@string/title_activity_authentication"
-            android:parentActivityName=".BaseActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
