@@ -21,7 +21,7 @@
         <activity android:name=".BaseActivity" />
         <activity android:name=".RestaurantActivity" />
         <activity android:name=".SearchActivity" />
-        <activity android:name=".InsertActivity" />
+        <activity android:name=".InsertActivity" android:exported="true" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".AuthenticationActivity"></activity>
     </application>
