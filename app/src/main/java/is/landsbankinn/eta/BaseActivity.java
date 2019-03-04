@@ -1,5 +1,6 @@
 package is.landsbankinn.eta;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -43,7 +44,7 @@ public class BaseActivity extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.one:
-                // do something
+                startActivity(new Intent( this, SearchActivity.class ));
                 return true;
 
             case R.id.two:

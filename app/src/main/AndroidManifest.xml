@@ -11,20 +11,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BaseActivity" />
-        <activity android:name=".RestaurantActivity" />
-        <activity android:name=".SearchActivity" />
-        <activity android:name=".InsertActivity" android:exported="true" />
-        <activity android:name=".RegisterActivity" />
+        <activity
+            android:name=".BaseActivity" />
+        <activity
+            android:name=".RestaurantActivity"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".SearchActivity"
+            android:launchMode="singleInstance"/>
+        <activity
+            android:name=".InsertActivity"
+            android:launchMode="singleInstance"
+            android:exported="true" />
+        <activity
+            android:name=".RegisterActivity"
+            android:launchMode="singleInstance"/>
         <activity
             android:name=".AuthenticationActivity"
+            android:launchMode="singleInstance"
             android:label="@string/title_activity_authentication"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
