@@ -2,6 +2,7 @@ package is.landsbankinn.eta.utils;
 
 import java.util.List;
 
+import is.landsbankinn.eta.models.InsertInformation;
 import is.landsbankinn.eta.models.Restaurant;
 import is.landsbankinn.eta.models.Review;
 import is.landsbankinn.eta.models.SearchParam;
@@ -21,7 +22,7 @@ public interface RequestHandler {
     Call<Restaurant>getRestaurant(@Path("id") long id);
 
     @POST("insert")
-    Call<Restaurant> insertRestaurant(@Body Restaurant restaurant);
+    Call<Restaurant> insertRestaurant(@Body InsertInformation information);
 
     @POST("restaurant/{id}")
     Call<Restaurant> submitReview(@Body Review Review);

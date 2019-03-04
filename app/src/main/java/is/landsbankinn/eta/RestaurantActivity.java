@@ -20,8 +20,8 @@ public class RestaurantActivity extends BaseActivity {
         setContentView(R.layout.activity_restaurant);
         mRestaurantName = findViewById(R.id.restaurant_name);
         long id = getIntent().getLongExtra("restaurantId", 0);
-        Call<Restaurant> restaurant = requestHandler.getRestaurant(id);
 
+        Call<Restaurant> restaurant = requestHandler.getRestaurant(id);
         restaurant.enqueue(new Callback<Restaurant>() {
             @Override
             public void onResponse(Call<Restaurant> call, Response<Restaurant> response) {
@@ -30,7 +30,6 @@ public class RestaurantActivity extends BaseActivity {
 
             @Override
             public void onFailure(Call<Restaurant> call, Throwable t) {
-                System.out.print(t);
                 mRestaurantName.setText(getResources().getString(R.string.get_restaurant_error));
             }
         });
