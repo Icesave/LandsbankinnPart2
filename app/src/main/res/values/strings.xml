@@ -45,7 +45,7 @@
     <string name="insert_priceTitle">Veldu verðbil</string>
     <string name="insert_buttonSubmit">Skrá Veitingastað</string>
 
-    <string name="search_title">Leita Af Veitingastað</string>
+    <string name="search_title">Leita Að Veitingastað</string>
     <string name="search_name">Nafn</string>
     <string name="search_location">Staðsetning</string>
     <string name="search_tag">Tegundir</string>
@@ -53,6 +53,11 @@
     <string name="search_cost1">Ódýrt</string>
     <string name="search_cost2">Miðlungs</string>
     <string name="search_cost3">Dýrt</string>
+
+
+    <string name="menu_login">Innskráning</string>
+    <string name="menu_register">Nýskráning</string>
+    <string name="menu_logout">Útskrá</string>
 
 
 

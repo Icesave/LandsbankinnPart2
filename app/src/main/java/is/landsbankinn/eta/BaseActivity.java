@@ -43,12 +43,12 @@ public class BaseActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-            case R.id.one:
-                startActivity(new Intent( this, SearchActivity.class ));
+            case R.id.login:
+                startActivity(new Intent( this, AuthenticationActivity.class ));
                 return true;
 
-            case R.id.two:
-                //do something
+            case R.id.register:
+                startActivity(new Intent( this, RegisterActivity.class ));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
