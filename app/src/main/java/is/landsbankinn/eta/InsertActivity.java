@@ -130,12 +130,6 @@ public class InsertActivity extends BaseActivity  {
                     }
                 });
 
-                // Check if User is logged in
-                if (preferenceHandler.isUserLoggedIn() == false) {
-                    Toast toastLogIn = Toast.makeText(InsertActivity.this, "Vinsamlegast skráðu þig inn", Toast.LENGTH_LONG);
-                    toastLogIn.show();
-                }
-
             }
         });
 
