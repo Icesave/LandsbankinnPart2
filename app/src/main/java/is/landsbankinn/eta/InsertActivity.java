@@ -15,6 +15,7 @@ import java.util.List;
 
 import is.landsbankinn.eta.models.Restaurant;
 import is.landsbankinn.eta.models.InsertInformation;
+import is.landsbankinn.eta.models.User;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -49,8 +50,6 @@ public class InsertActivity extends BaseActivity  {
         mRestAddress = findViewById(R.id.editTextAddress);
         mAboutRest = findViewById(R.id.editTextAbout);
         rg = findViewById(R.id.radioGroup);
-
-
 
 
         //when User taps Submit Button
@@ -107,19 +106,27 @@ public class InsertActivity extends BaseActivity  {
                 restaurant.setGenres(genres);
                 restaurant.setPrice(price);
 
+                User user = new User();
+
+
                 InsertInformation information = new InsertInformation();
                 information.setRestaurant(restaurant);
+                information.setUser(user);
 
                 Call<Restaurant> restaurantCall = requestHandler.insertRestaurant(information);
                 restaurantCall.enqueue(new Callback<Restaurant>() {
                     @Override
                     public void onResponse(Call<Restaurant> call, Response<Restaurant> response) {
-
+                        if (response.code() == 200) {
+                            Toast toastSuccess = Toast.makeText(InsertActivity.this, "Veitingastað hefur verið bætt við", Toast.LENGTH_LONG);
+                            toastSuccess.show();
+                        }
                     }
 
                     @Override
                     public void onFailure(Call<Restaurant> call, Throwable t) {
-
+                        Toast toastFail = Toast.makeText(InsertActivity.this, "Eitthvað fór úrskeiðis", Toast.LENGTH_LONG);
+                        toastFail.show();
                     }
                 });
 
@@ -128,7 +135,6 @@ public class InsertActivity extends BaseActivity  {
                     Toast toastLogIn = Toast.makeText(InsertActivity.this, "Vinsamlegast skráðu þig inn", Toast.LENGTH_LONG);
                     toastLogIn.show();
                 }
-                // Check if User is registered as a Restaurant Owner
 
             }
         });
