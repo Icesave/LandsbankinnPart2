@@ -1,7 +1,11 @@
 package is.landsbankinn.eta;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import is.landsbankinn.eta.utils.PreferenceHandler;
 import is.landsbankinn.eta.utils.RequestHandler;
@@ -26,5 +30,28 @@ public class BaseActivity extends AppCompatActivity {
         requestHandler = retrofit.create(RequestHandler.class);
         preferenceHandler = new PreferenceHandler(this);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.nav_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.one:
+                startActivity(new Intent( this, SearchActivity.class ));
+                return true;
+
+            case R.id.two:
+                //do something
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
