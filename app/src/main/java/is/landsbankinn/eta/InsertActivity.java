@@ -63,6 +63,19 @@ public class InsertActivity extends BaseActivity  {
                 String price;
                 List<String> genres = new ArrayList<>();
 
+                // Check if fields have been filled
+
+
+                if (name.isEmpty()) {
+                    Toast toastNoName = Toast.makeText(InsertActivity.this, "Nafn vantar", Toast.LENGTH_LONG);
+                    toastNoName.show();
+                }
+                if (address.isEmpty()) {
+                    Toast toastNoAddress = Toast.makeText(InsertActivity.this, "Heimilisfang vantar", Toast.LENGTH_LONG);
+                    toastNoAddress.show();
+                }
+
+
                 // Collect genres to list
                 if(mCheckBox1.isChecked() == true) {
                     genres.add(mCheckBox1.getText().toString());
@@ -108,7 +121,6 @@ public class InsertActivity extends BaseActivity  {
 
                 User user = new User();
 
-
                 InsertInformation information = new InsertInformation();
                 information.setRestaurant(restaurant);
                 information.setUser(user);
@@ -129,7 +141,12 @@ public class InsertActivity extends BaseActivity  {
                         toastFail.show();
                     }
                 });
-
+                     // Athuga hvort notandi sé manager
+                        String userType = preferenceHandler.getUserType();
+                        if (!getString(R.string.user_type_manager).equals(userType)) {
+                           Toast toastNotMananger = Toast.makeText(InsertActivity.this, "Þú ert ekki eigandi", Toast.LENGTH_LONG);
+                           toastNotMananger.show();
+                        }
             }
         });
 
