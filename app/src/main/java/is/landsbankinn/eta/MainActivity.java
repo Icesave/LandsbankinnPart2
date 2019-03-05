@@ -12,7 +12,6 @@ public class MainActivity extends BaseActivity {
 
     Button mSearchButton;
     Button mInsertButton;
-    Button mLoginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +21,7 @@ public class MainActivity extends BaseActivity {
         // A test that will be removed
         mSearchButton = findViewById(R.id.search_button);
         mInsertButton = findViewById(R.id.insert_button);
-        mLoginButton = findViewById(R.id.login_button);
+
         mSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -32,6 +31,7 @@ public class MainActivity extends BaseActivity {
                 // TODO start search Activity
                 //Intent intent = SearchActivity.getIntent(MainActivity.this,8);
                 //startActivity(intent);
+                startActivity(new Intent( MainActivity.this, SearchActivity.class ));
             }
         });
 
@@ -50,35 +50,11 @@ public class MainActivity extends BaseActivity {
                     Toast toastLogIn = Toast.makeText(MainActivity.this, "Vinsamlegast skráðu þig inn", Toast.LENGTH_LONG);
                     toastLogIn.show();
                 }
-            }
-        });
-        mLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (preferenceHandler.isUserLoggedIn()) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                    builder.setMessage(R.string.already_logged_in_message)
-                            .setPositiveButton(R.string.already_logged_in_yes, new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-
-                                }
-                            })
-                            .setNegativeButton(R.string.already_logged_in_no, new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    startAuthentication();
-                                }
-                            });
-                    builder.create().show();
-                } else {
-                    startAuthentication();
+                else {
+                    startActivity(new Intent( MainActivity.this, InsertActivity.class ));
                 }
             }
         });
-    }
-
-    private void startAuthentication() {
-        Intent intent = AuthenticationActivity.getIntent(MainActivity.this);
-        startActivity(intent);
     }
 }
 

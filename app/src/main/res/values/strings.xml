@@ -53,6 +53,8 @@
     <string name="search_cost1">Ódýrt</string>
     <string name="search_cost2">Miðlungs</string>
     <string name="search_cost3">Dýrt</string>
+    <string name="search_cb">Checkbox</string>
+    <string name="search_submit">Leita</string>
 
 
     <string name="menu_login">Innskráning</string>

@@ -29,14 +29,32 @@ public class BaseActivity extends AppCompatActivity {
 
         requestHandler = retrofit.create(RequestHandler.class);
         preferenceHandler = new PreferenceHandler(this);
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.nav_menu, menu);
+        selectMenu( menu );
         return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        selectMenu( menu );
+        return true;
+    }
+
+    private void selectMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        menu.clear();
+        inflater.inflate(R.menu.nav_menu, menu);
+
+        if( preferenceHandler.isUserLoggedIn() ) {
+            menu.removeItem(R.id.login);
+            menu.removeItem(R.id.register);
+        }
+        else {
+            menu.removeItem(R.id.logout);
+        }
     }
 
     @Override
@@ -46,12 +64,16 @@ public class BaseActivity extends AppCompatActivity {
             case R.id.login:
                 startActivity(new Intent( this, AuthenticationActivity.class ));
                 return true;
-
             case R.id.register:
                 startActivity(new Intent( this, RegisterActivity.class ));
+                return true;
+            case R.id.logout:
+                preferenceHandler.userHasLoggedOut();
+                this.invalidateOptionsMenu();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
+
 }
