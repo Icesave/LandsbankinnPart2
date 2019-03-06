@@ -45,6 +45,7 @@ public class MainActivity extends BaseActivity {
                 //Intent intent = InsertActivity.getIntent(MainActivity.this,8);
                 //startActivity(intent);
 
+
                 // Check if User is logged in
                 if (preferenceHandler.isUserLoggedIn() == false) {
                     Toast toastLogIn = Toast.makeText(MainActivity.this, "Vinsamlegast skráðu þig inn", Toast.LENGTH_LONG);
