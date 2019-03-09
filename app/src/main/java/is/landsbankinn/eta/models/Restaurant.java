@@ -9,7 +9,6 @@ public class Restaurant {
     private String location;
     private String price;
     private String description;
-
     private List<String> genres = new ArrayList<>();
 
 

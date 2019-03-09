@@ -5,13 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.constraint.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context=".SearchActivity">
         <!-- have whatever children you want inside -->
 
@@ -130,10 +129,10 @@
             app:layout_constraintTop_toBottomOf="@+id/titleTag">
 
             <CheckBox
-                android:id="@+id/checkBox"
+                android:id="@+id/checkBoxDummy1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CheckBox" />
+                android:text="@string/search_cb" />
         </LinearLayout>
 
         <LinearLayout
@@ -149,11 +148,23 @@
             app:layout_constraintTop_toBottomOf="@+id/titleTag">
 
             <CheckBox
-                android:id="@+id/checkBox9"
+                android:id="@+id/checkBoxDummy2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CheckBox" />
+                android:text="@string/search_cb" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/search_submit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tagCol1" />
 
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

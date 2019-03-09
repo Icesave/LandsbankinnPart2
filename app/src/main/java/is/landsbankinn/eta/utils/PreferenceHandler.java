@@ -110,4 +110,12 @@ public class PreferenceHandler {
     public boolean isUserLoggedIn() {
         return getBoolean(USER_LOGGED_IN);
     }
+
+    /**
+     * Save that the user has logged out
+     */
+    public void userHasLoggedOut() {
+        setBoolean(USER_LOGGED_IN, false);
+    }
+
 }
