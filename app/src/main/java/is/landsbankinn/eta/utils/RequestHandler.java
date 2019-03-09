@@ -25,7 +25,7 @@ public interface RequestHandler {
     Call<Restaurant> insertRestaurant(@Body InsertInformation information);
 
     @POST("restaurant/{id}")
-    Call<Restaurant> submitReview(@Body Review Review);
+    Call<Restaurant> submitReview(@Body Review Review, @Path("id") long id);
 
     @POST("login")
     Call<User> getUser(@Body User user);

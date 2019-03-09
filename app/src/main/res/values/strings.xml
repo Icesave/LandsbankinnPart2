@@ -53,7 +53,18 @@
     <string name="search_cost1">Ódýrt</string>
     <string name="search_cost2">Miðlungs</string>
     <string name="search_cost3">Dýrt</string>
-
+    <string name="restaurant_reviews_headline">Umsagnir</string>
+    <string name="restaurant_loading_message">Sæki upplýsingar um veitingastað...</string>
+    <string name="review_title">Setja inn umsögn</string>
+    <string name="review_grade_one">1</string>
+    <string name="review_grade_two">2</string>
+    <string name="review_grade_three">3</string>
+    <string name="review_grade_four">4</string>
+    <string name="review_grade_five">5</string>
+    <string name="review_button_text">Skrá umsögn</string>
+    <string name="restaurant_insert_review_button">Skrifa umsögn</string>
+    <string name="review_post_cancel">Hætta við</string>
+    <string name="review_post_error">Gat ekki send inn umsögn</string>
 
 
 </resources>

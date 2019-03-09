@@ -1,17 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RestaurantActivity">
+    tools:context=".MainActivity">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingStart="10dp"
+    android:paddingTop="10dp"
+    android:paddingEnd="10dp"
+    android:paddingBottom="15dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/restaurant_name"
+        android:textSize="22sp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_gravity="center"
+        android:layout_marginEnd="20dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:text="@string/restaurant_loading_message"
+        />
+
+
+
+
+    <TextView
+        android:id="@+id/restaruant_location"
+        android:textSize="12sp"
+        android:layout_gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/restaurant_name"
+        android:layout_marginEnd="5dp"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        tools:text = "Staðsetning"
+        />
+
+    <TextView
+        android:id="@+id/restaruant_price"
+        android:textSize="12sp"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/restaurant_name"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        tools:text = "Verð"
+        />
+    <TextView
+        android:id="@+id/restaruant_description"
+        android:textSize="10sp"
+        app:layout_constraintTop_toBottomOf="@id/restaruant_location"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:ellipsize="none"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="10dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        tools:text = "Lýsing á veitinastað Lýsing á veitinastað Lýsing á veitinastað Lýsing á veitinastað Lýsing á veitinastað Lýsing á veitinastað Lýsing á veitinastað Lýsing á veitinastað Lýsing á veitinastað Lýsing á veitinastað Lýsing á veitinastað "
+        />
+
     <TextView
         android:layout_width="wrap_content"
+        android:id="@+id/restuarant_review_headline"
         android:layout_height="wrap_content"
-        android:id="@+id/restaurant_name"
-        tools:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="14dp"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/restaruant_description"
+        android:layout_gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/restaurant_reviews_headline"
+        android:visibility="invisible"
+        />
+    <Button
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:textSize="10dp"
+        android:id="@+id/restaurant_insert_review_button"
+        app:layout_constraintTop_toBottomOf="@+id/restaruant_description"
+        android:text="@string/restaurant_insert_review_button"
+        android:layout_marginTop="14dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/restaurant_reviews"
+        app:layout_constraintTop_toBottomOf="@+id/restuarant_review_headline"
+        android:layout_width="match_parent"
+        android:layout_gravity="start"
+        android:scrollbars="vertical"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="0dp">
+
+
+    </android.support.v7.widget.RecyclerView>
+
 </android.support.constraint.ConstraintLayout>
+</ScrollView>

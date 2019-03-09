@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="40dp"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/review_title"
+        android:text="@string/review_title"
+        android:layout_width="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/review_text"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:lines="4"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/review_title"
+        />
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/review_grade_choices"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/review_text"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/review_grade_1"
+            android:text="@string/review_grade_one"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/review_grade_2"
+            android:text="@string/review_grade_two"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/review_grade_3"
+            android:text="@string/review_grade_three"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/review_grade_4"
+            android:text="@string/review_grade_four"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/review_grade_5"
+            android:checked="true"
+            android:text="@string/review_grade_five"
+            />
+    </RadioGroup>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/review_grade_choices"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        >
+        <Button
+            android:layout_width="wrap_content"
+            android:id="@+id/review_send_review"
+            android:layout_height="wrap_content"
+            android:text="@string/review_button_text"
+            android:layout_marginEnd="10dp"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/review_cancel"
+            android:text="@string/review_post_cancel"
+            />
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
