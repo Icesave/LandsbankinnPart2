@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout android:layout_width="match_parent"
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_centerVertical="true"
     android:layout_centerHorizontal="true"
     android:layout_gravity="center"
     tools:context=".RegisterActivity"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/GreyBG">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -100,10 +102,27 @@
         android:id="@+id/register_register_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
         android:text="@string/register_button_text"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="40dp"
 
         />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_above="@+id/inputs"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="86dp"
+        android:layout_marginEnd="105dp"
+        android:layout_marginBottom="-6dp"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/account" />
 </RelativeLayout>

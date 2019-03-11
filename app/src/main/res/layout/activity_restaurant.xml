@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/GreyBG">
 
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
@@ -111,9 +112,9 @@
         android:text="@string/restaurant_insert_review_button"
         android:layout_marginTop="14dp"
         android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
         android:background="@color/colorPrimary"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
         />
 
 
@@ -135,8 +136,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:scrollbarAlwaysDrawVerticalTrack="true"
         android:scrollbars="vertical"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/review_devider"
