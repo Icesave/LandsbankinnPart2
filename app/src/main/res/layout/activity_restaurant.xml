@@ -8,7 +8,7 @@
     android:background="@color/GreyBG">
 
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
@@ -22,14 +22,28 @@
         android:id="@+id/restaurant_name"
         android:textSize="22sp"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_gravity="center"
         android:textColor="@color/colorPrimaryDark"
-        android:layout_marginEnd="20dp"
+        android:fontFamily="sans-serif"
+        android:textAlignment="center"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="5dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/restaurant_icon"
         android:layout_width="wrap_content"
         android:text="@string/restaurant_loading_message"
         />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="6dp"
+        android:visibility="invisible"
+        android:id="@+id/restaurant_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/ic_restaurant"
+        />
+
 
     <TextView
         android:id="@+id/restaruant_location"
@@ -46,19 +60,44 @@
         tools:text = "Staðsetning"
         />
 
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_marginTop="7dp"
+        android:id="@+id/restaurant_location_icon"
+        android:layout_marginStart="3dp"
+        android:layout_height="20dp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/restaurant_name"
+        app:layout_constraintStart_toEndOf="@id/restaruant_location"
+        android:src="@drawable/ic_location"
+
+        />
+
     <TextView
         android:id="@+id/restaruant_price"
         android:textSize="12sp"
         android:layout_gravity="center"
         android:textAlignment="center"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/restaurant_price_icon"
         app:layout_constraintTop_toBottomOf="@id/restaurant_name"
         android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_width="wrap_content"
-        android:textColor="@color/green"
         tools:text = "Verð"
+        />
+
+    <ImageView
+        android:id="@+id/restaurant_price_icon"
+        android:layout_width="17dp"
+        android:visibility="invisible"
+        android:layout_height="17dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_attach_money"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintTop_toBottomOf="@id/restaurant_name"
+        app:layout_constraintEnd_toEndOf="parent"
+
         />
     <TextView
         android:id="@+id/restaruant_description"
@@ -98,9 +137,21 @@
         android:textSize="14sp"
         app:layout_constraintTop_toBottomOf="@id/restaurant_tags"
         android:layout_gravity="center"
+        android:layout_marginStart="10dp"
         android:textColor="@color/colorPrimaryDark"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/restaurant_revies_icon"
         android:text="@string/restaurant_reviews_headline"
+        android:visibility="invisible"
+        />
+
+    <ImageView
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:id="@+id/restaurant_revies_icon"
+        app:layout_constraintTop_toBottomOf="@id/restaurant_tags"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/ic_chat"
         android:visibility="invisible"
         />
 

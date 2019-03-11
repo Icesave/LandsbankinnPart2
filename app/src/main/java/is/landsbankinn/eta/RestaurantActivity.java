@@ -2,20 +2,16 @@ package is.landsbankinn.eta;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -47,6 +43,10 @@ public class RestaurantActivity extends BaseActivity {
     List<Review> restaurantReviews;
     ReviewAdapter reviewAdapter;
     RecyclerView mTags;
+    ImageView mLocationIcon;
+    ImageView mPriceIcon;
+    ImageView mReviewsIcon;
+    ImageView mRestaurantIcon;
     long restaruantId;
 
     @Override
@@ -62,6 +62,10 @@ public class RestaurantActivity extends BaseActivity {
         mReviewHealine = findViewById(R.id.restuarant_review_headline);
         mSubmitReview = findViewById(R.id.restaurant_insert_review_button);
         mTags = findViewById(R.id.restaurant_tags);
+        mLocationIcon = findViewById(R.id.restaurant_location_icon);
+        mPriceIcon = findViewById(R.id.restaurant_price_icon);
+        mReviewsIcon = findViewById(R.id.restaurant_revies_icon);
+        mRestaurantIcon = findViewById(R.id.restaurant_icon);
 
         mSubmitReview.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,6 +183,10 @@ public class RestaurantActivity extends BaseActivity {
         mReviews.setAdapter(reviewAdapter);
         mReviewHealine.setVisibility(View.VISIBLE);
         mSubmitReview.setVisibility(View.VISIBLE);
+        mPriceIcon.setVisibility(View.VISIBLE);
+        mReviewsIcon.setVisibility(View.VISIBLE);
+        mLocationIcon.setVisibility(View.VISIBLE);
+        mRestaurantIcon.setVisibility(View.VISIBLE);
         RecyclerView.LayoutManager tagManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         mTags.setLayoutManager(new GridLayoutManager(this, 3));
 
