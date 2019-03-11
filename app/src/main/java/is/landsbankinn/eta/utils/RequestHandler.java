@@ -13,6 +13,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface RequestHandler {
     String BASE_URL = "https://eta-bakendi.herokuapp.com/";
@@ -33,7 +34,10 @@ public interface RequestHandler {
     @POST("signup")
     Call<User> insertUser(@Body User user);
 
-    @POST("search")
-    Call<List<Restaurant>> searchForRestaurant(@Body SearchParam searchParam);
+    @POST("search?searchByName=true")
+    Call<List<Restaurant>> searchForRestaurantName(@Body SearchParam searchParam);
 
+
+    @POST("search?searchByName=false")
+    Call<List<Restaurant>> searchForRestaurant(@Body SearchParam searchParam);
 }

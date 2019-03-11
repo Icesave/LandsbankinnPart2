@@ -20,7 +20,7 @@
     <string name="insert_tag_6">Ítalskur</string>
     <string name="insert_tag_7">Hollt</string>
     <string name="insert_tag_8">Samlokur</string>
-    <string name="insert_price_1">Ódýr</string>
+    <string name="insert_price_1">Ódýrt</string>
     <string name="insert_price_2">Meðaldýr</string>
     <string name="insert_price_3">Dýr</string>
     <string name="title_activity_authentication">AuthenticationActivity</string>
