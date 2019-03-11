@@ -24,19 +24,29 @@
             android:name=".BaseActivity" />
         <activity
             android:name=".RestaurantActivity"
+            android:parentActivityName=".MainActivity"
             android:launchMode="singleInstance" />
         <activity
             android:name=".SearchActivity"
+            android:parentActivityName=".MainActivity"
             android:launchMode="singleInstance"/>
         <activity
             android:name=".InsertActivity"
+            android:parentActivityName=".MainActivity"
             android:launchMode="singleInstance"
-            android:exported="true" />
+            android:exported="true">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="is.landsbankinn.eta.BaseActivity" />
+        </activity>
         <activity
             android:name=".RegisterActivity"
+            android:parentActivityName=".MainActivity"
             android:launchMode="singleInstance"/>
+
         <activity
             android:name=".AuthenticationActivity"
+            android:parentActivityName=".MainActivity"
             android:launchMode="singleInstance"
             android:label="@string/title_activity_authentication"
             android:theme="@style/AppTheme.NoActionBar">

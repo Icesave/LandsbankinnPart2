@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/GreyBG">
+
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
@@ -93,6 +95,8 @@
         android:layout_marginTop="14dp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
         />
 
     <android.support.v7.widget.RecyclerView
