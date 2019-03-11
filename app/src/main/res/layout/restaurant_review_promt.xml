@@ -103,6 +103,7 @@
             android:background="@color/colorPrimary"
             android:textColor="@color/white"
             android:text="@string/review_post_cancel"
+
             />
     </LinearLayout>
 
