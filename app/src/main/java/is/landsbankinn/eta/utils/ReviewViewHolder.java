@@ -14,7 +14,6 @@ class ReviewViewHolder extends RecyclerView.ViewHolder {
     TextView mRating;
     public ReviewViewHolder(View itemView) {
         super(itemView);
-        System.out.println("HER");
         mReviewUserName = itemView.findViewById(R.id.review_username);
 
         mRating = itemView.findViewById(R.id.review_grading);

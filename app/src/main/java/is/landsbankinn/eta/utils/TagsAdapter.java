@@ -10,13 +10,12 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import is.landsbankinn.eta.R;
-import is.landsbankinn.eta.models.Review;
 
-public class ReviewAdapter extends RecyclerView.Adapter {
+public class TagsAdapter extends RecyclerView.Adapter {
 
-    private List<Review> mReviewList;
+    private List<String> mReviewList;
 
-    public ReviewAdapter(Context context, List<Review> reviewList) {
+    public TagsAdapter(Context context, List<String> reviewList) {
         mReviewList = reviewList;
     }
 
@@ -24,17 +23,17 @@ public class ReviewAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.review_list_item, parent, false);
+                .inflate(R.layout.tag_list_item, parent, false);
 
 
-        return new ReviewViewHolder(view);
+        return new TagsViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         if (mReviewList.size() != 0) {
-            Review review = mReviewList.get(position);
-            ((ReviewViewHolder)holder).bind(review);
+            String tag = mReviewList.get(position);
+            ((TagsViewHolder) holder).bind(tag);
         }
     }
 

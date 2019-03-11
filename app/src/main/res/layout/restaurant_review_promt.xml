@@ -85,14 +85,20 @@
         <Button
             android:layout_width="wrap_content"
             android:id="@+id/review_send_review"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
+            android:padding="5dp"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
             android:text="@string/review_button_text"
             android:layout_marginEnd="10dp"
             />
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
+            android:padding="5dp"
             android:id="@+id/review_cancel"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
             android:text="@string/review_post_cancel"
             />
     </LinearLayout>
