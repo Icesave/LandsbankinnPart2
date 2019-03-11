@@ -46,21 +46,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title" />
 
-        <EditText
-            android:id="@+id/location"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginEnd="36dp"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="16dp"
-            android:ems="10"
-            android:hint="@string/search_location"
-            android:inputType="textPersonName"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name" />
-
         <TextView
             android:id="@+id/titleCost"
             android:layout_width="match_parent"
@@ -70,7 +55,7 @@
             android:text="@string/search_cost"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/location" />
+            app:layout_constraintTop_toBottomOf="@+id/name" />
 
         <RadioGroup
             android:id="@+id/radioGroupCost"
@@ -90,21 +75,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/search_cost1" />
-
+                android:text="@string/insert_price_1" />
             <RadioButton
                 android:id="@+id/radioButtonCost2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/search_cost2"/>
-
+                android:text="@string/insert_price_2" />
             <RadioButton
                 android:id="@+id/radioButtonCost3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/search_cost3"/>
+                android:text="@string/insert_price_3"/>
         </RadioGroup>
 
         <TextView

@@ -6,8 +6,8 @@ import java.util.List;
 public class SearchParam {
     private String name;
     private List<String> tags;
-    private String genre;
-    private int price;
+    private String price;
+
 
 
     public String getName() {
@@ -18,14 +18,6 @@ public class SearchParam {
         this.name = name;
     }
 
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
     public List<String> getTags() {
         return tags;
     }
@@ -34,11 +26,11 @@ public class SearchParam {
         this.tags = tags;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 }

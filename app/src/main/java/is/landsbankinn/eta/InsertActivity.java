@@ -129,6 +129,8 @@ public class InsertActivity extends BaseActivity  {
                 restaurantCall.enqueue(new Callback<Restaurant>() {
                     @Override
                     public void onResponse(Call<Restaurant> call, Response<Restaurant> response) {
+                        Toast toasty = Toast.makeText(InsertActivity.this, Integer.toString(response.code()), Toast.LENGTH_LONG);
+                        toasty.show();
                         if (response.code() == 200) {
                             Toast toastSuccess = Toast.makeText(InsertActivity.this, "Veitingastað hefur verið bætt við", Toast.LENGTH_LONG);
                             toastSuccess.show();
