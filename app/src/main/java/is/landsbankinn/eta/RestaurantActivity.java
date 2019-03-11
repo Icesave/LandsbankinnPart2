@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +26,7 @@ import java.util.List;
 import is.landsbankinn.eta.models.Restaurant;
 import is.landsbankinn.eta.models.Review;
 import is.landsbankinn.eta.utils.ReviewAdapter;
+import is.landsbankinn.eta.utils.TagsAdapter;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -43,6 +46,7 @@ public class RestaurantActivity extends BaseActivity {
     Button mReviewCancel;
     List<Review> restaurantReviews;
     ReviewAdapter reviewAdapter;
+    RecyclerView mTags;
     long restaruantId;
 
     @Override
@@ -57,6 +61,7 @@ public class RestaurantActivity extends BaseActivity {
         mReviews = findViewById(R.id.restaurant_reviews);
         mReviewHealine = findViewById(R.id.restuarant_review_headline);
         mSubmitReview = findViewById(R.id.restaurant_insert_review_button);
+        mTags = findViewById(R.id.restaurant_tags);
 
         mSubmitReview.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -167,13 +172,29 @@ public class RestaurantActivity extends BaseActivity {
         mPrice.setText(restaurant.getPrice());
         mDescription.setText(restaurant.getDescription());
         mLocation.setText(restaurant.getLocation());
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(RestaurantActivity.this);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         mReviews.setLayoutManager(layoutManager);
         restaurantReviews = restaurant.getReviewList();
-        reviewAdapter = new ReviewAdapter(RestaurantActivity.this, restaurantReviews);
+        reviewAdapter = new ReviewAdapter(this, restaurantReviews);
         mReviews.setAdapter(reviewAdapter);
         mReviewHealine.setVisibility(View.VISIBLE);
         mSubmitReview.setVisibility(View.VISIBLE);
+        RecyclerView.LayoutManager tagManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        mTags.setLayoutManager(new GridLayoutManager(this, 3));
+
+// set a GridLayoutManager with 3 number of columns , horizontal gravity and false value for reverseLayout to show the items from start to end
+        //GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
+        //mTags.setLayoutManager(gridLayoutManager); // set LayoutManager to RecyclerView
+        ArrayList<String> test = new ArrayList<>();
+        test.add("Vegan");
+        test.add("Vegatarian");
+        test.add("Italian");
+        test.add("Indian");
+        test.add("Chineese");
+        test.add("Bad");
+        test.add("Good");
+        //mTags.setAdapter(new TagsAdapter(this, restaurant.getGenres()));
+        mTags.setAdapter(new TagsAdapter(this, test));
     }
 
     private void updateReviews(Review newReview) {

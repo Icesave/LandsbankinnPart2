@@ -2,8 +2,11 @@
 <resources>
     <color name="colorPrimary">#252538</color>
     <color name="colorPrimaryDark">#1B1E29</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="GreyBG">#9CA8BB</color>
+    <color name="colorAccent">#040731</color>
     <color name="input_needed">#FF4081</color>
     <color name="white">#FAFAFA</color>
     <color name="yellow">#BFB300</color>
+    <color name="green">#4BC14B</color>
+
 </resources>

@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/GreyBG">
 
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -11,6 +12,7 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         tools:context=".SearchActivity">
         <!-- have whatever children you want inside -->
 
@@ -22,9 +24,9 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/search_title"
-            android:textColor="@android:color/black"
             android:textSize="32sp"
             android:textStyle="bold"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -44,21 +46,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title" />
 
-        <EditText
-            android:id="@+id/location"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginEnd="36dp"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="16dp"
-            android:ems="10"
-            android:hint="@string/search_location"
-            android:inputType="textPersonName"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name" />
-
         <TextView
             android:id="@+id/titleCost"
             android:layout_width="match_parent"
@@ -68,7 +55,7 @@
             android:text="@string/search_cost"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/location" />
+            app:layout_constraintTop_toBottomOf="@+id/name" />
 
         <RadioGroup
             android:id="@+id/radioGroupCost"
@@ -89,20 +76,18 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/insert_price_1" />
-
             <RadioButton
                 android:id="@+id/radioButtonCost2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/insert_price_2" />
-
             <RadioButton
                 android:id="@+id/radioButtonCost3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/insert_price_3" />
+                android:text="@string/insert_price_3"/>
         </RadioGroup>
 
         <TextView
@@ -132,7 +117,7 @@
                 android:id="@+id/checkBoxDummy1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/search_cb" />
+                android:text="@string/search_cb"/>
         </LinearLayout>
 
         <LinearLayout
@@ -151,7 +136,7 @@
                 android:id="@+id/checkBoxDummy2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/search_cb" />
+                android:text="@string/search_cb"/>
         </LinearLayout>
 
         <Button
@@ -161,6 +146,8 @@
             android:layout_marginBottom="16dp"
             android:layout_marginTop="32dp"
             android:text="@string/search_submit"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
