@@ -90,8 +90,7 @@
             android:id="@+id/review_send_review"
             android:layout_height="30dp"
             android:padding="5dp"
-            android:background="@color/colorPrimary"
-            android:textColor="@color/white"
+
             android:text="@string/review_button_text"
             android:layout_marginEnd="10dp"
             android:background="@color/colorPrimary"
@@ -105,8 +104,7 @@
             android:background="@color/colorPrimary"
             android:textColor="@color/white"
             android:text="@string/review_post_cancel"
-            android:background="@color/colorPrimary"
-            android:textColor="@color/white"
+         
             />
     </LinearLayout>
 
