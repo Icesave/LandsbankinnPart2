@@ -189,20 +189,7 @@ public class RestaurantActivity extends BaseActivity {
         mRestaurantIcon.setVisibility(View.VISIBLE);
         RecyclerView.LayoutManager tagManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         mTags.setLayoutManager(new GridLayoutManager(this, 3));
-
-// set a GridLayoutManager with 3 number of columns , horizontal gravity and false value for reverseLayout to show the items from start to end
-        //GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
-        //mTags.setLayoutManager(gridLayoutManager); // set LayoutManager to RecyclerView
-        ArrayList<String> test = new ArrayList<>();
-        test.add("Vegan");
-        test.add("Vegatarian");
-        test.add("Italian");
-        test.add("Indian");
-        test.add("Chineese");
-        test.add("Bad");
-        test.add("Good");
-        //mTags.setAdapter(new TagsAdapter(this, restaurant.getGenres()));
-        mTags.setAdapter(new TagsAdapter(this, test));
+        mTags.setAdapter(new TagsAdapter(this, restaurant.getGenres()));
     }
 
     private void updateReviews(Review newReview) {
