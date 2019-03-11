@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".RestaurantActivity"
     android:background="@color/GreyBG">
 
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -23,15 +23,13 @@
         android:textSize="22sp"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_gravity="center"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_marginEnd="20dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_width="wrap_content"
         android:text="@string/restaurant_loading_message"
         />
-
-
-
 
     <TextView
         android:id="@+id/restaruant_location"
@@ -41,6 +39,7 @@
         app:layout_constraintTop_toBottomOf="@id/restaurant_name"
         android:layout_marginEnd="5dp"
         android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -53,10 +52,12 @@
         android:layout_gravity="center"
         android:textAlignment="center"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/restaurant_name"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:textColor="@color/green"
         tools:text = "Verð"
         />
     <TextView
@@ -66,6 +67,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:ellipsize="none"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginEnd="10dp"
         android:layout_height="wrap_content"
