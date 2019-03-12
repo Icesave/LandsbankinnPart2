@@ -74,6 +74,8 @@
     <string name="restaurant_insert_review_button">Skrifa umsögn</string>
     <string name="review_post_cancel">Hætta við</string>
     <string name="review_post_error">Gat ekki send inn umsögn</string>
+    <string name="authentication_password_to_short">Lykilorð verður að innihalda 4 stafi</string>
+    <string name="restaurant_email_input_error">Verður að vera gilt email</string>
 
 
 </resources>

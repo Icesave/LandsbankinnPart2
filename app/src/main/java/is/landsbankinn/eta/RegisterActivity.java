@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import is.landsbankinn.eta.models.User;
 import retrofit2.Call;
@@ -44,10 +45,10 @@ public class RegisterActivity extends BaseActivity {
         mRegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mPassword.setBackgroundResource(R.color.white);
-                mUserName.setBackgroundResource(R.color.white);
-                mEmail.setBackgroundResource(R.color.white);
-                mTypeButtons.setBackgroundResource(R.color.white);
+                mPassword.setBackgroundResource(R.color.GreyBG);
+                mUserName.setBackgroundResource(R.color.GreyBG);
+                mEmail.setBackgroundResource(R.color.GreyBG);
+                mTypeButtons.setBackgroundResource(R.color.GreyBG);
 
                 // Farið yfir öll input, ef að eitthvað vantar þá er svæði litað rautt
                 boolean allInputsOk = true;
@@ -66,8 +67,19 @@ public class RegisterActivity extends BaseActivity {
                     mPassword.setBackgroundResource(R.color.input_needed);
                 }
 
+                if (pass.length() < 4) {
+                    allInputsOk = false;
+                    mPassword.setBackgroundResource(R.color.input_needed);
+                    Toast.makeText(RegisterActivity.this, R.string.authentication_password_to_short, Toast.LENGTH_SHORT).show();
+                }
+
                 if (email.isEmpty()) {
                     allInputsOk = false;
+                    mEmail.setBackgroundResource(R.color.input_needed);
+                    Toast.makeText(RegisterActivity.this, R.string.restaurant_email_input_error, Toast.LENGTH_SHORT).show();
+                }
+
+                if (!email.contains("@")) {
                     mEmail.setBackgroundResource(R.color.input_needed);
                 }
 

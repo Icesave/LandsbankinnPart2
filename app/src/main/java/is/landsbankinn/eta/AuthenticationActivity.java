@@ -44,7 +44,7 @@ public class AuthenticationActivity extends BaseActivity {
             public void onClick(View view) {
                 String username = mUsername.getText().toString();
                 String password = mPassword.getText().toString();
-                mUsername.setBackgroundResource(R.color.white);
+                mUsername.setBackgroundResource(R.color.GreyBG);
 
                 // Farið yfir öll input og ef að eitthvað vantar þá er svæði litað rautt til að
                 // notandi viti að hann eigi að fylla inn í þá reiti
