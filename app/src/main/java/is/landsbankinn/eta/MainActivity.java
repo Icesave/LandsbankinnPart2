@@ -25,9 +25,6 @@ public class MainActivity extends BaseActivity {
         mSearchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast toast = Toast.makeText(MainActivity.this, "SEARCH", Toast.LENGTH_LONG);
-                toast.show();
-
                 // TODO start search Activity
                 //Intent intent = SearchActivity.getIntent(MainActivity.this,8);
                 //startActivity(intent);
@@ -38,9 +35,6 @@ public class MainActivity extends BaseActivity {
         mInsertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast toast = Toast.makeText(MainActivity.this, "INSERT", Toast.LENGTH_LONG);
-                toast.show();
-
                 // TODO start insert Activity
                 //Intent intent = InsertActivity.getIntent(MainActivity.this,8);
                 //startActivity(intent);
