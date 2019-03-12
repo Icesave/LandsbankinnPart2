@@ -25,7 +25,7 @@ Afrita eða niðurhala frá GitHub og setja upp í Android Studio.  Appið er ke
 
 # Atriði til að hafa í huga
 
-Ef ekkert sótt í bakenda í hálftíma, þá fer hann á sleep.  Þannig þegar það næst sótt á bakendann getur það tekið 30sek að kveikja á sér aftur.
+Ef ekkert sótt í bakenda í hálftíma, þá fer hann á sleep.  Þannig þegar það næst sótt á bakendann getur það tekið 30sek að kveikja á sér aftur. Hægt er að klikka á þennan link til að vekja bakendan: https://eta-bakendi.herokuapp.com/restaurant/11
 
 # UML Class Diagram
 
