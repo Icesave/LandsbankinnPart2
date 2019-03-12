@@ -53,7 +53,7 @@ public class InsertActivity extends BaseActivity  {
         rg = findViewById(R.id.radioGroup);
 
 
-        //when User taps Submit Button
+        // Þegar notandi ýtir á Submit hnapp
         mSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,9 +64,7 @@ public class InsertActivity extends BaseActivity  {
                 String price;
                 List<String> genres = new ArrayList<>();
 
-                // Check if fields have been filled
-
-
+                // Athuga hvort fyllt hafi verið í nauðsynlega reiti
                 if (name.isEmpty()) {
                     Toast toastNoName = Toast.makeText(InsertActivity.this, "Nafn vantar", Toast.LENGTH_LONG);
                     toastNoName.show();
@@ -79,7 +77,7 @@ public class InsertActivity extends BaseActivity  {
                 }
 
 
-                // Collect genres to list
+                // Safna saman tegundum sem notandi velur
                 if(mCheckBox1.isChecked() == true) {
                     genres.add(mCheckBox1.getText().toString());
                 }
@@ -105,12 +103,12 @@ public class InsertActivity extends BaseActivity  {
                     genres.add(mCheckBox8.getText().toString());
                 }
 
-                // Get the price
+                // Verðbil sem valið er
                 int selectedRadioButtonID = rg.getCheckedRadioButtonId();
                 selectedPrice = findViewById(selectedRadioButtonID);
                 price = selectedPrice.getText().toString();
 
-
+                // Búa til Restaurant
                 Restaurant restaurant = new Restaurant();
                 restaurant.setName(name);
                 restaurant.setLocation(address);
@@ -118,6 +116,7 @@ public class InsertActivity extends BaseActivity  {
                 restaurant.setGenres(genres);
                 restaurant.setPrice(price);
 
+                // Sækja notanda
                 User user = new User();
                 user.setUsername( preferenceHandler.getUserName() );
                 user.setPassword( preferenceHandler.getUserPassword() );
@@ -127,6 +126,7 @@ public class InsertActivity extends BaseActivity  {
                 information.setRestaurant(restaurant);
                 information.setUser(user);
 
+                // Veitingastað bætt við
                 Call<Restaurant> restaurantCall = requestHandler.insertRestaurant(information);
                 restaurantCall.enqueue(new Callback<Restaurant>() {
                     @Override
