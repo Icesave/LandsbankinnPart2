@@ -81,6 +81,7 @@ public class RegisterActivity extends BaseActivity {
 
                 if (!email.contains("@")) {
                     mEmail.setBackgroundResource(R.color.input_needed);
+                    Toast.makeText(RegisterActivity.this, R.string.restaurant_email_input_error, Toast.LENGTH_SHORT).show();
                 }
 
                 if (selectedRadioId == -1) {
