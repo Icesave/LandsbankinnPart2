@@ -27,6 +27,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Sér um að birta stakan veitingastað eftir id
+ */
+
 public class RestaurantActivity extends BaseActivity {
 
     TextView mRestaurantName;
@@ -53,7 +57,11 @@ public class RestaurantActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant);
+
+        // Ná í id á veitingastað til að sækja
         restaruantId = getIntent().getLongExtra("restaurantId", 11);
+
+        // Upphafsstilla views
         mDescription = findViewById(R.id.restaruant_description);
         mPrice = findViewById(R.id.restaruant_price);
         mLocation = findViewById(R.id.restaruant_location);
@@ -67,29 +75,34 @@ public class RestaurantActivity extends BaseActivity {
         mReviewsIcon = findViewById(R.id.restaurant_revies_icon);
         mRestaurantIcon = findViewById(R.id.restaurant_icon);
 
+
+        // Takki til að setja inn umsögn á veitingastað
         mSubmitReview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                // Notandi verður að vera skráður inn til að setja inn umsögn
                 if(!preferenceHandler.isUserLoggedIn()) {
                     Toast toast = Toast.makeText(RestaurantActivity.this, "Notandi verður að vera skráður innn", Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
-                    // get prompts.xml view
-                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(RestaurantActivity.this);
 
+                    // Birta pop up til að setja inn umsögn
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(RestaurantActivity.this);
                     LayoutInflater layoutInflater = LayoutInflater.from(RestaurantActivity.this);
                     View popupInputDialogView = layoutInflater.inflate(R.layout.restaurant_review_promt, null);
+
+                    // Upphafsstilla views
                     mSendReview = popupInputDialogView.findViewById(R.id.review_send_review);
                     mReviewGradeChoices = popupInputDialogView.findViewById(R.id.review_grade_choices);
                     mReviewText = popupInputDialogView.findViewById(R.id.review_text);
                     mReviewCancel = popupInputDialogView.findViewById(R.id.review_cancel);
 
-
                     alertDialogBuilder.setView(popupInputDialogView);
                     final AlertDialog alertDialog = alertDialogBuilder.create();
                     alertDialog.show();
 
+                    // Takki til að hætta við að skrifa umsögn, þá er pop up lokað
                     mReviewCancel.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -97,11 +110,13 @@ public class RestaurantActivity extends BaseActivity {
                         }
                     });
 
+                    // Senda umsögn um veitingastað
                     mSendReview.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            int grade = 1;
 
+                            // Sækja upplýsingar um einkunn sem notandi gefur
+                            int grade = 1;
                             switch (mReviewGradeChoices.getCheckedRadioButtonId()) {
                                 case R.id.review_grade_2:
                                     grade = 2;
@@ -116,17 +131,23 @@ public class RestaurantActivity extends BaseActivity {
                                     grade = 5;
                                     break;
                             }
+
+                            // Umsögn frá notanda
                             String reviewText = mReviewText.getText().toString();
                             final Review review = new Review();
                             review.setRating(grade);
                             review.setText(reviewText);
                             review.setUsername(preferenceHandler.getUserName());
 
+                            // Umsögn send á bakenda
                             Call<Restaurant> reviewResult = requestHandler.submitReview(review, restaruantId);
 
+                            // Svar frá bakenda
                             reviewResult.enqueue(new Callback<Restaurant>() {
                                 @Override
                                 public void onResponse(Call<Restaurant> call, Response<Restaurant> response) {
+
+                                    // Umsögn tókst, útlit uppfært og popup lokað
                                     if (response.code() == 200) {
                                         updateReviews(review);
                                         alertDialog.dismiss();
@@ -149,10 +170,13 @@ public class RestaurantActivity extends BaseActivity {
             }
         });
 
+
+        // Sótt upplýsingar um veitingstað frá bakenda eftir id
         final Call<Restaurant> restaurant = requestHandler.getRestaurant(restaruantId);
         restaurant.enqueue(new Callback<Restaurant>() {
             @Override
             public void onResponse(Call<Restaurant> call, Response<Restaurant> response) {
+                // Tókst að ná í veitingastað, útlit uppfært
                 if (response.code() == 200) {
                     displayRestaurantInfo(response.body());
                 }
@@ -165,33 +189,52 @@ public class RestaurantActivity extends BaseActivity {
         });
     }
 
+    /**
+     * Til að fá nýtt intent upphafssstill af RestaurantActivity
+     * @param packageContext activity sem kallar á þessa
+     * @param restaruantId id á veitingastað til að ná í
+     * @return nýrri Intent með restaurantId sett i´extra
+     */
     public static Intent getIntent(Context packageContext, long restaruantId) {
         Intent intent = new Intent(packageContext, RestaurantActivity.class);
         intent.putExtra("restaurantId", restaruantId);
         return intent;
     }
 
+    /**
+     * Setur réttar upplýinsgar í views eftir upplýsingum úr
+     * @param restaurant
+     */
     private void displayRestaurantInfo(Restaurant restaurant){
         mRestaurantName.setText(restaurant.getName());
         mPrice.setText(restaurant.getPrice());
         mDescription.setText(restaurant.getDescription());
         mLocation.setText(restaurant.getLocation());
+
+        // Recylcerview fyrir umsagnir um veitingastað
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         mReviews.setLayoutManager(layoutManager);
         restaurantReviews = restaurant.getReviewList();
         reviewAdapter = new ReviewAdapter(this, restaurantReviews);
         mReviews.setAdapter(reviewAdapter);
+
+        // Birta það sem var falið áður en að bakendi skilar veitingastöðum
         mReviewHealine.setVisibility(View.VISIBLE);
         mSubmitReview.setVisibility(View.VISIBLE);
         mPriceIcon.setVisibility(View.VISIBLE);
         mReviewsIcon.setVisibility(View.VISIBLE);
         mLocationIcon.setVisibility(View.VISIBLE);
         mRestaurantIcon.setVisibility(View.VISIBLE);
-        RecyclerView.LayoutManager tagManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+
+        // Recyclerview fyrir tags á veitingastað
         mTags.setLayoutManager(new GridLayoutManager(this, 3));
         mTags.setAdapter(new TagsAdapter(this, restaurant.getGenres()));
     }
 
+    /**
+     * Uppfærir recylerview fyrir umsagnir
+     * @param newReview ný review sem á að bætast í útlitið
+     */
     private void updateReviews(Review newReview) {
         restaurantReviews.add(0, newReview);
         reviewAdapter.notifyDataSetChanged();

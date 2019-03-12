@@ -27,5 +27,12 @@ Afrita eða niðurhala frá GitHub og setja upp í Android Studio.  Appið er ke
 
 Ef ekkert sótt í bakenda í hálftíma, þá fer hann á sleep.  Þannig þegar það næst sótt á bakendann getur það tekið 30sek að kveikja á sér aftur.
 
+# UML Class Diagram
+
+https://drive.google.com/file/d/1kEAvh-6kNAeiLPK7f-nJcCX1ene4i7Wr/view?usp=sharing
+
+# UML Sequence Diagram
+
+https://drive.google.com/file/d/1UETcpGeXlmQKGzvhfet2DsfTWAfl_wv6/view?usp=sharing
 
 

@@ -16,6 +16,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Sér um að nýskrá notanda
+ */
 public class RegisterActivity extends BaseActivity {
 
     RadioGroup mTypeButtons;
@@ -37,6 +40,7 @@ public class RegisterActivity extends BaseActivity {
         mEmail = findViewById(R.id.register_email);
         mRegisterInfo = findViewById(R.id.register_login_information);
 
+        // Virkni fyrir takka sem að nýskráir notanda
         mRegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,6 +48,8 @@ public class RegisterActivity extends BaseActivity {
                 mUserName.setBackgroundResource(R.color.white);
                 mEmail.setBackgroundResource(R.color.white);
                 mTypeButtons.setBackgroundResource(R.color.white);
+
+                // Farið yfir öll input, ef að eitthvað vantar þá er svæði litað rautt
                 boolean allInputsOk = true;
                 String username = mUserName.getText().toString();
                 String pass = mPassword.getText().toString();
@@ -70,9 +76,10 @@ public class RegisterActivity extends BaseActivity {
                     mTypeButtons.setBackgroundResource(R.color.input_needed);
                 }
 
+                // Ef öll input eru í lagi
                 if (allInputsOk) {
-                    String managerType = getString(R.string.user_type_manager);
 
+                    String managerType = getString(R.string.user_type_manager);
                     if (mTypeButtons.getCheckedRadioButtonId() == R.id.register_type_non_manager) {
                         managerType = getString(R.string.user_type_casual);
                     }
@@ -83,11 +90,13 @@ public class RegisterActivity extends BaseActivity {
                     user.setEmail(email);
                     user.setType(managerType);
 
+                    // Nýskráning send á bakenda
                     Call<User> registerResponse = requestHandler.insertUser(user);
 
                     registerResponse.enqueue(new Callback<User>() {
                         @Override
                         public void onResponse(Call<User> call, Response<User> response) {
+                            // Ef gekk að nýskrá eru allar upplýsingar um notanda vistaðar í RequestHandler
                             if (response.code() == 200) {
                                 User newUser = response.body();
                                 mRegisterInfo.setText(R.string.register_info_success);
@@ -99,6 +108,8 @@ public class RegisterActivity extends BaseActivity {
                                 preferenceHandler.userHasLoggedIn();
                                 setResult(2);
                                 finish();
+
+                                // Villuskilaboð birt ef að eitthvað fór úrskeiðis
                             } else {
                                 mRegisterInfo.setText(R.string.register_info_error);
                                 mRegisterInfo.setVisibility(View.VISIBLE);
@@ -110,7 +121,6 @@ public class RegisterActivity extends BaseActivity {
                             mRegisterInfo.setText(R.string.register_info_error);
                         }
                     });
-
                 }
             }
         });
