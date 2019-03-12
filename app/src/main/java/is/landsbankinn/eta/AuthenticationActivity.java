@@ -14,6 +14,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Sér um að virkni til að skrá notanda inn
+ */
 public class AuthenticationActivity extends BaseActivity {
 
     Button mLoginButton;
@@ -35,6 +38,7 @@ public class AuthenticationActivity extends BaseActivity {
         mInformation = findViewById(R.id.authentication_login_information);
         mRegister = findViewById(R.id.authentication_register_button);
 
+        // Takki sem að skráir notanda inn, sendir beðni á bakenda
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,6 +46,8 @@ public class AuthenticationActivity extends BaseActivity {
                 String password = mPassword.getText().toString();
                 mUsername.setBackgroundResource(R.color.white);
 
+                // Farið yfir öll input og ef að eitthvað vantar þá er svæði litað rautt til að
+                // notandi viti að hann eigi að fylla inn í þá reiti
                 boolean allInputsOk  = true;
                 if (username.isEmpty()) {
                     allInputsOk = false;
@@ -53,6 +59,7 @@ public class AuthenticationActivity extends BaseActivity {
                     mPassword.setBackgroundResource(R.color.input_needed);
                 }
 
+                // Ef að ekkert vantaði í input þá er sent á bakenda
                 if (allInputsOk) {
                     User user = new User();
                     user.setPassword(password);
@@ -65,6 +72,10 @@ public class AuthenticationActivity extends BaseActivity {
                         @Override
                         public void onResponse(Call<User> call, Response<User> response) {
                             mInformation.setVisibility(View.VISIBLE);
+
+                            // Ef að gekk að skrá inn þá eru upplýsingar um notanda
+                            // vistaðar í preferencehandler svo að hægt sé að ná í þær
+                            // hvaðan sem er
                             if (response.code() == 200) {
                                 mInformation.setText(getResources().getString(R.string.authentication_login_success));
                                 User user = response.body();
@@ -76,6 +87,7 @@ public class AuthenticationActivity extends BaseActivity {
 
                                 finish();
                             } else {
+                                // Villuskilaboð bort ef að gekk ekki að skrá inn
                                 mInformation.setText(getResources().getString(R.string.authentication_login_error));
                             }
                         }
@@ -91,22 +103,20 @@ public class AuthenticationActivity extends BaseActivity {
             }
         });
 
+        // Ef að notandi á ekki reikning getur hann klikkað á register takkan og farið í egister activity
         mRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivityForResult(RegisterActivity.getIntent(AuthenticationActivity.this), REGISTER_REQUEST_CODE);
-/*
-                startActivity(RegisterActivity.getIntent(AuthenticationActivity.this));
-*/
-
             }
         });
     }
 
-    public static Intent getIntent(Context context) {
-        return new Intent(context, AuthenticationActivity.class);
-    }
-
+    /**
+     * Ef að notandi náði að nýskrá sig viljum við hætta í AuthenticationActivity og fara
+     * beint í main actvity aftur
+     * @param requestCode sem segir hvaða activity er að skila til baka
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent){
         if (requestCode == REGISTER_REQUEST_CODE && resultCode == REQUEST_RESULT_SUCCESS) {
