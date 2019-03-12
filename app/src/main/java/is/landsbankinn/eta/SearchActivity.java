@@ -27,6 +27,7 @@ import retrofit2.Response;
 
 public class SearchActivity extends BaseActivity {
 
+    // Öll möguleg tög á veitingarstöðunum
     private final String[] TAGS = new String[] {
         "Indverskur",
         "Tælenskur",
@@ -38,7 +39,9 @@ public class SearchActivity extends BaseActivity {
         "Samlokur"
     };
 
+    // HashMap til að sjá hvaða tög er búið að velja
     private final Map<String, Boolean> tags = new HashMap<>();
+
     private LinearLayout tagLayout1;
     private LinearLayout tagLayout2;
     private Button submit;
@@ -47,12 +50,16 @@ public class SearchActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
+        // Layout þar sem öll tög fara sem eru vinstra meginn
         tagLayout1 = findViewById(R.id.tagCol1);
         tagLayout1.removeAllViews();
 
+        // Layout þar sem öll tög fara sem eru hægra meginn
         tagLayout2 = findViewById(R.id.tagCol2);
         tagLayout2.removeAllViews();
 
+        // Sumbit takkinn fyrir formið
         submit = findViewById(R.id.submitButton);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,19 +68,20 @@ public class SearchActivity extends BaseActivity {
             }
         });
 
-
         initTags();
     }
 
+
+    /* Setja upp checkboxin samkvæmt tögunum og hendir þau í viewinu */
     private void initTags() {
         for( int i = 0; i < TAGS.length; i++ ) {
             final String tag = TAGS[i];
-
 
             CheckBox cb = new CheckBox(this);
             cb.setText( tag );
             cb.setChecked( false );
             tags.put(tag, false);
+
             cb.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -83,6 +91,7 @@ public class SearchActivity extends BaseActivity {
 
             tags.put( tag, false );
 
+            // Checkboxin sem eru oddatölur eru vinstra meginn meðan hin hægra meginn
             if( i%2 == 0 ) {
                 tagLayout1.addView(cb);
             }
@@ -94,18 +103,20 @@ public class SearchActivity extends BaseActivity {
         }
     }
 
+    /* Sækir í alla veitingastaðina annahvort samkvæmt nafni eða tög og verðbili  */
     private void getRestaurants() {
         SearchParam searchParam = new SearchParam();
+
+        // Setja nafn
         EditText name = (EditText) findViewById(R.id.name);
         searchParam.setName(name.getText().toString());
 
-
-        // Setja price
+        // Setja verðbil
         RadioGroup rgc = findViewById(R.id.radioGroupCost);
         RadioButton price = findViewById(rgc.getCheckedRadioButtonId());
         searchParam.setPrice( price.getText().toString() );
 
-        // Setja tags
+        // Setja tög
         List<String> chosenTags = new ArrayList<>();
         for( int i = 0; i < TAGS.length; i++ ) {
             if( tags.get(TAGS[i]) ) {
@@ -115,49 +126,26 @@ public class SearchActivity extends BaseActivity {
         searchParam.setTags( chosenTags );
 
 
-/*
-        Restaurant restaurant = new Restaurant();
-
-        EditText name = (EditText) findViewById(R.id.name);
-        restaurant.setName(name.getText().toString());
-
-        restaurant.setLocation("ee");
-        restaurant.setDescription("ee");
-        List<String> list = null;
-        restaurant.setGenres(list);
-        restaurant.setPrice("Ódýrt");
-
-
-        /*
-        // Setja name
-        String name = findViewById(R.id.name).toString();
-        params.setName(name);
-
-        // Setja price
-        RadioGroup rgc = findViewById(R.id.radioGroupCost);
-        RadioButton price = findViewById(rgc.getCheckedRadioButtonId());
-        params.setPrice( price.getText().toString() );
-
-        // Setja tags
-        ArrayList<String> chosenTags = new ArrayList<>();
-        for( int i = 0; i < TAGS.length; i++ ) {
-            if( tags.get(TAGS[i]) ) {
-                chosenTags.add( TAGS[i] );
-            }
-        }
-        params.setTags( chosenTags );
-        */
         Call<List<Restaurant>> search;
+
+        // Ef nafn sé tómt þá er leitað eftir tög og verðbils
+        // Annars eftir nafninu
         if( searchParam.getName().equals("") ) {
             search = requestHandler.searchForRestaurant( searchParam );
         }
         else {
             search = requestHandler.searchForRestaurantName( searchParam );
         }
+
+        // Sendir request
         search.enqueue(new Callback<List<Restaurant>>() {
+            //
             @Override
             public void onResponse(Call<List<Restaurant>> call, Response<List<Restaurant>> response) {
+
+                // Ef allt gekk upp
                 if (response.isSuccessful()) {
+
                     if( response.body().size() == 0) {
                         Toast.makeText(SearchActivity.this, "Enginn veitingastaður fannst", Toast.LENGTH_LONG).show();
                     }
@@ -166,9 +154,10 @@ public class SearchActivity extends BaseActivity {
                         showRestaurants( results );
                     }
                 }
+                // Ef villa fannst
                 else {
                     try {
-                        Toast.makeText(SearchActivity.this, "Error code 400: "+response.errorBody().string(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(SearchActivity.this, response.errorBody().string(), Toast.LENGTH_LONG).show();
                     }
                     catch (Exception e) {
                         Toast.makeText(SearchActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
@@ -216,9 +205,7 @@ public class SearchActivity extends BaseActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Long id = ids.get(which);
-                Intent i = new Intent(SearchActivity.this, RestaurantActivity.class);
-                i.putExtra("restaurantId", id);
-                startActivity(i);
+                startActivity(RestaurantActivity.getIntent( SearchActivity.this, id ));
             }
         });
         builderSingle.show();
