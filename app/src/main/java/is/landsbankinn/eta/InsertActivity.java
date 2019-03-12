@@ -1,6 +1,7 @@
 package is.landsbankinn.eta;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -69,10 +70,12 @@ public class InsertActivity extends BaseActivity  {
                 if (name.isEmpty()) {
                     Toast toastNoName = Toast.makeText(InsertActivity.this, "Nafn vantar", Toast.LENGTH_LONG);
                     toastNoName.show();
+                    return;
                 }
                 if (address.isEmpty()) {
                     Toast toastNoAddress = Toast.makeText(InsertActivity.this, "Heimilisfang vantar", Toast.LENGTH_LONG);
                     toastNoAddress.show();
+                    return;
                 }
 
 
@@ -107,10 +110,6 @@ public class InsertActivity extends BaseActivity  {
                 selectedPrice = findViewById(selectedRadioButtonID);
                 price = selectedPrice.getText().toString();
 
-                // Test Toast
-                Toast toast = Toast.makeText(InsertActivity.this, name + "" + price + genres, Toast.LENGTH_LONG);
-                toast.show();
-
 
                 Restaurant restaurant = new Restaurant();
                 restaurant.setName(name);
@@ -120,6 +119,9 @@ public class InsertActivity extends BaseActivity  {
                 restaurant.setPrice(price);
 
                 User user = new User();
+                user.setUsername( preferenceHandler.getUserName() );
+                user.setPassword( preferenceHandler.getUserPassword() );
+                user.setType( preferenceHandler.getUserType() );
 
                 InsertInformation information = new InsertInformation();
                 information.setRestaurant(restaurant);
@@ -134,6 +136,11 @@ public class InsertActivity extends BaseActivity  {
                         if (response.code() == 200) {
                             Toast toastSuccess = Toast.makeText(InsertActivity.this, "Veitingastað hefur verið bætt við", Toast.LENGTH_LONG);
                             toastSuccess.show();
+                            startActivity(RestaurantActivity.getIntent( InsertActivity.this, response.body().getId() ));
+                        }
+                        else {
+                            Toast toastFail = Toast.makeText(InsertActivity.this, "Eitthvað fór úrskeiðis", Toast.LENGTH_LONG);
+                            toastFail.show();
                         }
                     }
 
