@@ -43,6 +43,7 @@ public class BaseActivity extends AppCompatActivity {
         return true;
     }
 
+    // Settur upp menuið eftir því hvort að notandinn sé innskráður eða ekki
     private void selectMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         menu.clear();
