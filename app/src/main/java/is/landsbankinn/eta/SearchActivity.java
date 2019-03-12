@@ -139,7 +139,8 @@ public class SearchActivity extends BaseActivity {
 
         // Sendir request
         search.enqueue(new Callback<List<Restaurant>>() {
-            //
+
+            // Ef svar fæst frá vefþjónustu
             @Override
             public void onResponse(Call<List<Restaurant>> call, Response<List<Restaurant>> response) {
 
@@ -165,6 +166,7 @@ public class SearchActivity extends BaseActivity {
                 }
             }
 
+            // Ef ekkert svar fæst frá vefþjónustu
             @Override
             public void onFailure(Call<List<Restaurant>> call, Throwable t) {
                 Toast toastFail = Toast.makeText(SearchActivity.this, "Óskilgreind villa", Toast.LENGTH_LONG);
@@ -175,6 +177,7 @@ public class SearchActivity extends BaseActivity {
 
     }
 
+    /* Sýnir veitingastaðina sem ristaðuð brauðsneið */
     private void showRestaurants(List<Restaurant> restaurants) {
         AlertDialog.Builder builderSingle = new AlertDialog.Builder(SearchActivity.this);
         builderSingle.setTitle("Veldu veitingastað:");
@@ -185,8 +188,10 @@ public class SearchActivity extends BaseActivity {
                 android.R.layout.select_dialog_item
         );
 
+        // HashMap geymir id eftir staðsetningunni veitingastaðsins í listanum
         final Map<Integer, Long> ids = new HashMap<>();
 
+        // Sækir í veitingastaðina og setur nafn þeirra í arrayadapterinn og id þeirra í ids
         for( int i = 0; i < restaurants.size(); i++ ) {
             String name = restaurants.get(i).getName();
             Long id = restaurants.get(i).getId();
@@ -205,6 +210,8 @@ public class SearchActivity extends BaseActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Long id = ids.get(which);
+
+                // Sendir þig á RestaurantActivity
                 startActivity(RestaurantActivity.getIntent( SearchActivity.this, id ));
             }
         });
