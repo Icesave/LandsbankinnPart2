@@ -62,29 +62,29 @@ public class RegisterActivity extends BaseActivity {
                     mUserName.setBackgroundResource(R.color.input_needed);
                 }
 
-                if (pass.isEmpty()) {
+                else if (pass.isEmpty()) {
                     allInputsOk = false;
                     mPassword.setBackgroundResource(R.color.input_needed);
                 }
 
-                if (pass.length() < 4) {
+                else if (pass.length() < 4) {
                     allInputsOk = false;
                     mPassword.setBackgroundResource(R.color.input_needed);
                     Toast.makeText(RegisterActivity.this, R.string.authentication_password_to_short, Toast.LENGTH_SHORT).show();
                 }
 
-                if (email.isEmpty()) {
+                else if (email.isEmpty()) {
                     allInputsOk = false;
                     mEmail.setBackgroundResource(R.color.input_needed);
                     Toast.makeText(RegisterActivity.this, R.string.restaurant_email_input_error, Toast.LENGTH_SHORT).show();
                 }
 
-                if (!email.contains("@")) {
+                else if (!email.contains("@")) {
                     mEmail.setBackgroundResource(R.color.input_needed);
                     Toast.makeText(RegisterActivity.this, R.string.restaurant_email_input_error, Toast.LENGTH_SHORT).show();
                 }
 
-                if (selectedRadioId == -1) {
+                else if (selectedRadioId == -1) {
                     allInputsOk = false;
                     mTypeButtons.setBackgroundResource(R.color.input_needed);
                 }

@@ -27,13 +27,12 @@
         android:layout_height="wrap_content"
         android:text="@string/register_new_login" />
     <TextView
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="3dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:id="@+id/register_login_information"
         android:layout_marginBottom="20dp"
-        android:text="sdafdsa"
         android:padding="10dp"
         android:visibility="invisible"
         />

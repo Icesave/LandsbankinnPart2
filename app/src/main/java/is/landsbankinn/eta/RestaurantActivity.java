@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import is.landsbankinn.eta.models.Restaurant;
@@ -215,6 +216,7 @@ public class RestaurantActivity extends BaseActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         mReviews.setLayoutManager(layoutManager);
         restaurantReviews = restaurant.getReviewList();
+        Collections.reverse(restaurantReviews);
         reviewAdapter = new ReviewAdapter(this, restaurantReviews);
         mReviews.setAdapter(reviewAdapter);
 
