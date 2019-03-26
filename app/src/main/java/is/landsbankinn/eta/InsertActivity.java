@@ -137,6 +137,7 @@ public class InsertActivity extends BaseActivity  {
                             Toast toastSuccess = Toast.makeText(InsertActivity.this, "Veitingastað hefur verið bætt við", Toast.LENGTH_LONG);
                             toastSuccess.show();
                             startActivity(RestaurantActivity.getIntent( InsertActivity.this, response.body().getId() ));
+                            finish();
                         }
                         else {
                             Toast toastFail = Toast.makeText(InsertActivity.this, "Eitthvað fór úrskeiðis", Toast.LENGTH_LONG);

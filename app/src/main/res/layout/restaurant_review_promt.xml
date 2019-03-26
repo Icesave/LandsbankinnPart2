@@ -77,32 +77,35 @@
             android:text="@string/review_grade_five"
             />
     </RadioGroup>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/review_grade_choices"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
-        >
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/review_grade_choices">
+
         <Button
-            android:layout_width="wrap_content"
             android:id="@+id/review_send_review"
-            android:layout_height="30dp"
-            android:padding="5dp"
-            android:background="@color/colorPrimary"
-            android:textColor="@color/white"
-            android:text="@string/review_button_text"
-            android:layout_marginEnd="10dp"
-            />
-        <Button
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:padding="5dp"
-            android:id="@+id/review_cancel"
+            android:layout_marginEnd="10dp"
             android:background="@color/colorPrimary"
-            android:textColor="@color/white"
+            android:padding="5dp"
+            android:text="@string/review_button_text"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/review_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="@color/colorPrimary"
+            android:padding="5dp"
             android:text="@string/review_post_cancel"
+            android:textColor="@color/white"
 
             />
     </LinearLayout>

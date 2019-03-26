@@ -15,6 +15,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
@@ -149,9 +150,11 @@ public class SearchActivity extends BaseActivity {
 
                     if( response.body().size() == 0) {
                         Toast.makeText(SearchActivity.this, "Enginn veitingastaður fannst", Toast.LENGTH_LONG).show();
+
                     }
                     else {
                         List<Restaurant> results = response.body();
+                        Collections.reverse(results);
                         showRestaurants( results );
                     }
                 }
