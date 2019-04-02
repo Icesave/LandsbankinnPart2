@@ -47,9 +47,7 @@
         <activity
             android:name=".AuthenticationActivity"
             android:parentActivityName=".MainActivity"
-            android:launchMode="singleInstance"
-            android:label="@string/title_activity_authentication"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:launchMode="singleInstance">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="is.landsbankinn.eta.BaseActivity" />
