@@ -110,7 +110,7 @@ public class SearchActivity extends BaseActivity {
 
         // Setja nafn
         EditText name = (EditText) findViewById(R.id.name);
-        searchParam.setName(name.getText().toString());
+        searchParam.setName(name.getText().toString().trim());
 
         // Setja verðbil
         RadioGroup rgc = findViewById(R.id.radioGroupCost);

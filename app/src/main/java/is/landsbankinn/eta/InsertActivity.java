@@ -110,7 +110,7 @@ public class InsertActivity extends BaseActivity  {
 
                 // Búa til Restaurant
                 Restaurant restaurant = new Restaurant();
-                restaurant.setName(name);
+                restaurant.setName(name.trim());
                 restaurant.setLocation(address);
                 restaurant.setDescription(about);
                 restaurant.setGenres(genres);

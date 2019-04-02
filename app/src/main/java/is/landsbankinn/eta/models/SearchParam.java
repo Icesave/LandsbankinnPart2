@@ -5,7 +5,7 @@ import java.util.List;
 
 public class SearchParam {
     private String name;
-    private List<String> tags;
+    private List<String> genres;
     private String price;
 
 
@@ -19,11 +19,11 @@ public class SearchParam {
     }
 
     public List<String> getTags() {
-        return tags;
+        return genres;
     }
 
     public void setTags(List<String> tags) {
-        this.tags = tags;
+        this.genres = tags;
     }
 
     public String getPrice() {
