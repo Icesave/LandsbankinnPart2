@@ -100,7 +100,7 @@
         />
     <TextView
         android:id="@+id/restaruant_description"
-        android:textSize="10sp"
+        android:textSize="14sp"
         app:layout_constraintTop_toBottomOf="@id/restaruant_location"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
@@ -186,15 +186,15 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/restaurant_reviews"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:scrollbars="vertical"
-        android:scrollbarAlwaysDrawVerticalTrack="true"
         android:layout_marginTop="10dp"
+        android:paddingRight="8dp"
+        android:paddingBottom="32dp"
+        android:scrollbarAlwaysDrawVerticalTrack="false"
+        android:scrollbars="none"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/review_devider"
-        >
-    </android.support.v7.widget.RecyclerView>
+        app:layout_constraintTop_toBottomOf="@+id/review_devider"></android.support.v7.widget.RecyclerView>
 
 
 </android.support.constraint.ConstraintLayout>
