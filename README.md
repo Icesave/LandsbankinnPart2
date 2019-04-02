@@ -1,7 +1,6 @@
 # Éta
 
 #### Íslenska:
----
 ## Hugbúnaðarverkefni 2 - HBV601G
 **Hópur 3**
 * Aníta Kristjánsdóttir - ank16@hi.is
