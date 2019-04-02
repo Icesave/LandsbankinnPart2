@@ -31,7 +31,7 @@ Ef ekkert sótt í bakenda í hálftíma, þá fer hann á sleep.  Þannig þega
 
 https://drive.google.com/file/d/1kEAvh-6kNAeiLPK7f-nJcCX1ene4i7Wr/view?usp=sharing
 
-# UML Sequence Diagram
+# UML Activity Diagram
 
 https://drive.google.com/file/d/1UETcpGeXlmQKGzvhfet2DsfTWAfl_wv6/view?usp=sharing
 
