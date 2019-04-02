@@ -1,5 +1,5 @@
-# Éta
-#### Íslenska: ####
+# Éta 
+#### English:
 ## Hugbúnaðarverkefni 2 - HBV601G
 **Hópur 3**
 * Aníta Kristjánsdóttir - ank16@hi.is
@@ -32,7 +32,7 @@ You can manually wake up the web service by going to the following link:
 
 ---
 
-#### English:
+#### Íslenska:
 ## Software Project 2 - HBV601G
 **Group 3**
 * Aníta Kristjánsdóttir - ank16@hi.is
