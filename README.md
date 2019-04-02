@@ -2,11 +2,11 @@
 
 ## Hópur 3
 
-## Aníta Kristjánsdóttir - ank16@hi.is
+# Aníta Kristjánsdóttir - ank16@hi.is
 
-## Elvar Árni Sturluson - eas20@hi.is
+# Elvar Árni Sturluson - eas20@hi.is
 
-## Tinna Sturludóttir - tis12@hi.is
+# Tinna Sturludóttir - tis12@hi.is
 
 # Hvað er Éta
 
