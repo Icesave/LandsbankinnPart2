@@ -4,15 +4,18 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -46,6 +49,10 @@ public class SearchActivity extends BaseActivity {
     private LinearLayout tagLayout1;
     private LinearLayout tagLayout2;
     private Button submit;
+    private ConstraintLayout nameLayout;
+    private ConstraintLayout priceAndTagLayout;
+    private ToggleButton toggleSearch;
+    private Boolean searchByName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +66,25 @@ public class SearchActivity extends BaseActivity {
         // Layout þar sem öll tög fara sem eru hægra meginn
         tagLayout2 = findViewById(R.id.tagCol2);
         tagLayout2.removeAllViews();
+
+
+
+        toggleSearch = findViewById(R.id.toggleSearch);
+        toggleSearch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                searchByName = isChecked;
+                nameLayout.setVisibility(searchByName ? View.VISIBLE : View.GONE);
+                priceAndTagLayout.setVisibility(!searchByName ? View.VISIBLE : View.GONE);
+            }
+        });
+        searchByName = toggleSearch.isChecked();
+
+        nameLayout = findViewById(R.id.nameLayout);
+        nameLayout.setVisibility(searchByName ? View.VISIBLE : View.GONE);
+
+        priceAndTagLayout = findViewById(R.id.priceAndTagLayout);
+        priceAndTagLayout.setVisibility(!searchByName ? View.VISIBLE : View.GONE);
+
 
         // Sumbit takkinn fyrir formið
         submit = findViewById(R.id.submitButton);
@@ -131,11 +157,11 @@ public class SearchActivity extends BaseActivity {
 
         // Ef nafn sé tómt þá er leitað eftir tög og verðbils
         // Annars eftir nafninu
-        if( searchParam.getName().equals("") ) {
-            search = requestHandler.searchForRestaurant( searchParam );
+        if( searchByName ) {
+            search = requestHandler.searchForRestaurantName( searchParam );
         }
         else {
-            search = requestHandler.searchForRestaurantName( searchParam );
+            search = requestHandler.searchForRestaurant( searchParam );
         }
 
         // Sendir request

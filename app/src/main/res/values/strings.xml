@@ -56,6 +56,8 @@
     <string name="search_cost3">Dýrt</string>
     <string name="search_cb">Checkbox</string>
     <string name="search_submit">Leita</string>
+    <string name="search_byName">Nafn</string>
+    <string name="search_byPriceAndTags">Verðbil og tegundir</string>
 
 
     <string name="menu_login">Innskráning</string>
