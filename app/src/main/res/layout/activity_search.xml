@@ -41,13 +41,16 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="12dp"
+            android:background="@color/colorPrimary"
             android:checked="true"
+            android:padding="8dp"
+            android:textColor="@color/white"
             android:textOff="@string/search_byName"
             android:textOn="@string/search_byPriceAndTags"
+            app:layout_constraintBottom_toTopOf="@+id/nameLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title"
-            app:layout_constraintBottom_toTopOf="@+id/nameLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/title" />
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/nameLayout"
@@ -200,7 +203,7 @@
 
         <Button
             android:id="@+id/submitButton"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="148dp"
