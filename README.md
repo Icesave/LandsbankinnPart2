@@ -25,7 +25,7 @@ Users that register as "eigandi" (e. owner) are flagged as restaurant owners thu
 
 ### Things to have in mind
 
-The web service that handle the database goes to sleep every half an hour if have not received any request in that time.
+The web service that handle the database goes to sleep every half an hour it has not received any request in that time.
 If it receives a request while in sleep mode it will take a few seconds to wake up.
 You can manually wake up the web service by going to the following link: 
 [Wake up, pal](https://eta-bakendi.herokuapp.com/restaurant/11)
